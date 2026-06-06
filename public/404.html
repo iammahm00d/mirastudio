@@ -1,22 +1,16 @@
 <!doctype html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>MiraStudio</title>
     <script>
-      // GitHub Pages SPA fallback for project sites.
-      // Converts /repo/about into /repo/?/about, then index.html restores it.
+      // GitHub Pages fallback: redirect any unknown path back to the repo root.
+      // The site uses HashRouter, so normal navigation uses /#/about, /#/services, etc.
       (function () {
-        var pathSegmentsToKeep = 1;
-        var l = window.location;
-        l.replace(
-          l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-          l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') +
-          '/?/' +
-          l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
-          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-          l.hash
-        );
+        var parts = window.location.pathname.split('/').filter(Boolean);
+        var repo = parts.length ? '/' + parts[0] + '/' : '/';
+        window.location.replace(window.location.origin + repo + window.location.hash);
       })();
     </script>
   </head>
