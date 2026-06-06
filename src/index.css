@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; background: #F7F3EC; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body { margin: 0; overflow-x: hidden; background: #F7F3EC; color: #111111; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; text-rendering: geometricPrecision; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+::selection { background: rgba(185,168,143,.35); }
+.focus-ring:focus-visible { outline: 2px solid #111111; outline-offset: 4px; }
+.editorial-shadow { box-shadow: 0 24px 80px rgba(17,17,17,.08); }
+.image-mask { clip-path: inset(0 round 28px); }
+.bg-noise { background-image: radial-gradient(rgba(247,243,236,.08) .7px, transparent .7px); background-size: 12px 12px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+}
